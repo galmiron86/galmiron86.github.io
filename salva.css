@@ -1,0 +1,98 @@
+/* Animaciones y transiciones más sutiles */
+.game-button,
+.action-button,
+.secondary-action-button,
+.back-button,
+.input-field {
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.game-button:hover,
+.action-button:hover,
+.secondary-action-button:hover,
+.back-button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.input-field:focus {
+    box-shadow: 0 0 8px rgba(100, 149, 237, 0.5); /* Cornflower Blue */
+}
+
+.modal-content {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Refinamiento visual del contenedor del juego */
+.game-container {
+    border-width: 3px;
+    border-color: #93c5fd; /* Light Blue-300 */
+}
+
+/* Estilo para indicar el juego seleccionado en el menú principal */
+.game-button.selected {
+    @apply bg-blue-700 text-yellow-100 shadow-xl;
+    transform: scale(1.05);
+}
+
+/* Mejoras en el feedback */
+.feedback-message.correct {
+    animation: slideInCorrect 0.3s ease-out;
+}
+
+.feedback-message.incorrect {
+    animation: slideInIncorrect 0.3s ease-out;
+}
+
+@keyframes slideInCorrect {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInIncorrect {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Resaltado del puntaje */
+.score-display {
+    animation: pulseScore 0.8s infinite alternate;
+    color: #8b5cf6; /* Purple-600 */
+}
+
+@keyframes pulseScore {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+/* Estilo para el contador de preguntas */
+.questions-counter-display {
+    color: #718096; /* Gray-600 */
+    font-style: italic;
+}
+
+/* Ajuste en el botón de volver al menú en ranking */
+#ranking-section .back-button {
+    @apply bg-red-400 hover:bg-red-500;
+}
+
+/* Animación para el botón de ranking en el menú */
+#show-ranking-button {
+    animation: pulseRanking 1s infinite alternate;
+}
+
+@keyframes pulseRanking {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+}
+
+/* Cursor más claro para botones deshabilitados */
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
